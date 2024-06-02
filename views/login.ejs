@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego</title>
+    <link rel = "stylesheet" href = "/css/main.css" />
+</head>
+<body tabindex="-1">
+
+    <%- include('partials/navbar',{page: '/login'}) %>
+   
+    <div class ="container mx-auto p-4">
+        <div class = "hero bg-base-200 rounded-lg p-6">
+            <div class = "max-w-md">
+                <h1 class="text-5xl font-bold">Log In</h1>
+
+                <div class="text-center-container">
+                    <p class="py-6">login page</p>
+                  </div>
+            </div>
+        </div>     
+    </div>
+
+    <br>
+
+    <form method = "post" action="/login" class = "space-y-4">
+<div class="flex flex-col">
+<label for="userName" class ="text-sm font-semibold text-gray-600">User Name</label>
+<input
+id="userName"
+name = "userName"
+type="text"
+placeholder="User Name"
+required
+value="<%= userName %>"
+class = "mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500" />
+</div>
+
+
+<div class="flex flex-col">
+<label for="password" class ="text-sm font-semibold text-gray-600">Password</label>
+<input
+id="password"
+name = "password"
+type="password"
+placeholder="password"
+required
+class = "mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500" />
+
+</div>
+<input
+type = "submit"
+class = "bg-green-500 text-white p-2 rounded-md cursor-pointer hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-500"
+value ="Login"
+/>
+    </form>
+
+<% if(errorMessage) { %>
+
+    <br>
+    <div class = "alert alert-error"> 
+    <svg xmlns="http://www.w3.org/2000/svg" class = "stroke-current shrink-0 h-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" -linejoin="round" -width="2" d="M10 1412-2m0 012-2m22 21-2-2m2 212 2m7-2a9 9 0 11-18 0 9 9 0 0118 0x" /></svg>
+    <span><%= errorMessage %></span>
+</div>
+<%} %>
+
+</div>
+</body>
+</html>
